@@ -95,10 +95,10 @@
 							braceCount--;
 					}
 					j++;
-					string formattedFor = $"{{\nlabel{labelCounter}:\nif({condition}){{{content}\n\ngoto label{labelCounter};\n}}\n}}";
+					string formattedWhile = $"{{\nlabel{labelCounter}:\nif({condition}){{{content}\n\ngoto label{labelCounter};\n}}\n}}";
 					labelCounter++;
 					code.RemoveRange(i, j - i);
-					code.Insert(i, formattedFor);
+					code.Insert(i, formattedWhile);
 					rerun = true;
 					return code;
 				}
