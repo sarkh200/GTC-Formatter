@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "GTC-Formatter": {
+      "commandName": "Project",
+      "commandLineArgs": "./test/test.c",
+      "workingDirectory": "C:\\Users\\Sadra Saharkhiz\\source\\repos\\C#\\GTC-Formatter"
+    }
+  }
+}

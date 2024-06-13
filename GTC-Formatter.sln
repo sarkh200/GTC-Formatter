@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTC-Formatter", "GTC-Formatter.csproj", "{5ACB7874-FECE-463E-95F9-82AA59B22655}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ACB7874-FECE-463E-95F9-82AA59B22655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ACB7874-FECE-463E-95F9-82AA59B22655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ACB7874-FECE-463E-95F9-82AA59B22655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ACB7874-FECE-463E-95F9-82AA59B22655}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6ACB939A-9F21-4F97-92E7-19D6B99C6900}
+	EndGlobalSection
+EndGlobal
