@@ -19,19 +19,21 @@
 
 			List<string> tokenizedFile = Tokenizer.Tokenize(fileContents);
 
-			Formatter formatter = new();
-			string formattedFile = formatter.FormatCode(tokenizedFile);
+			string formattedFile = Formatter.Format(tokenizedFile);
 
 			File.WriteAllText(filePath, formattedFile);
 			Console.WriteLine("File Formatted! Remember to run your formatter of choice in order to make it look nice");
 			Console.WriteLine("Would you like to undo the changes? (y/n)");
 			string? response = Console.ReadLine();
 			if (response != null)
-				response = response.ToLower();
-			if (response == "y" || response == "yes")
 			{
-				File.WriteAllText(filePath, fileContents);
-				Console.WriteLine("Formatting undone!");
+				response = response.ToLower();
+				response = response.Trim();
+				if (response.Length > 0 && response[0] == 'y')
+				{
+					File.WriteAllText(filePath, fileContents);
+					Console.WriteLine("Formatting undone!");
+				}
 			}
 		}
 	}

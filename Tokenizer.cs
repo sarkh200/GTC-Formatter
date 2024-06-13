@@ -9,6 +9,7 @@
 			string token = "";
 			bool isQuote = false;
 			bool isLineComment = false;
+			bool isMultiLineComment = false;
 
 			foreach (char c in input)
 			{
@@ -16,7 +17,7 @@
 				{
 					case ' ':
 					case '\t':
-						if (!isQuote && !isLineComment)
+						if (!isQuote && !isLineComment && !isMultiLineComment)
 						{
 							if (token != "")
 								tokenizedString.Add(token);
@@ -35,8 +36,18 @@
 						goto default;
 
 					case '/':
-						if (token == "/")
+						if (token == "/" && !isLineComment && !isMultiLineComment)
 							isLineComment = true;
+						else if (token == "*")
+							isMultiLineComment = false;
+						goto default;
+
+					case '*':
+						if (token == "/" && !isLineComment && !isMultiLineComment)
+							isMultiLineComment = true;
+						if (token != "")
+							tokenizedString.Add(token);
+						token = "";
 						goto default;
 
 					case '\n':
@@ -51,7 +62,7 @@
 					case ']':
 					case ';':
 					case ',':
-						if (!isQuote && !isLineComment)
+						if (!isQuote && !isLineComment && !isMultiLineComment)
 						{
 							if (token != "")
 								tokenizedString.Add(token);

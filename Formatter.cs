@@ -2,9 +2,20 @@
 {
 	internal class Formatter
 	{
-		int labelCounter = 0;
 
-		public string FormatCode(List<string> code)
+		public static string Format(List<string> code)
+		{
+			int labelCounter = 0;
+			bool rerun = true;
+			while (rerun)
+			{
+				code = FormatCode(code, ref labelCounter, out rerun);
+			}
+
+			return string.Join("", code);
+		}
+
+		static List<string> FormatCode(List<string> code, ref int labelCounter, out bool rerun)
 		{
 			for (int i = 0; i < code.Count; i++)
 			{
@@ -53,7 +64,8 @@
 					code.RemoveRange(i, j - i);
 					code.Insert(i, formattedFor);
 					code = Tokenizer.Tokenize(string.Join("", code));
-					FormatCode(code);
+					rerun = true;
+					return code;
 				}
 				else if (code[i] == "while")
 				{
@@ -87,11 +99,12 @@
 					labelCounter++;
 					code.RemoveRange(i, j - i);
 					code.Insert(i, formattedFor);
-					code = Tokenizer.Tokenize(string.Join("", code));
-					FormatCode(code);
+					rerun = true;
+					return code;
 				}
 			}
-			return string.Join("", code);
+			rerun = false;
+			return code;
 		}
 	}
 }

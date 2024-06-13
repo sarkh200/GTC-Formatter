@@ -1,53 +1,26 @@
 #include <stdio.h>
-#include <math.h>
 
-void printTri(char character, int height);
-
-int main(void)
+int main()
 {
-	char inputChar;
-	int height;
-	printf("Enter a character: ");
-	scanf("%c", &inputChar);
-	printf("\nLet's draw an isosceles triangle with your character %c.\n", inputChar);
-
-	printf("Enter a value for the height of the triangle: ");
-	scanf("%d", &height);
-	printf("(Base will be the same as height.)\n\n");
-
-	printTri(inputChar, height);
-
-	printf("\nThe area of your triangle is: %.2f\n", powf(height, 2) / 2);
-}
-
-// Comment,;() that is very cool
-/*comment adsasdasa*/
-void printTri(char character, int height)
-{
-	for (int i = 0; i < height; i++)
+	int i, j;
+	for (i = 0; i < 5; i++)
 	{
-		for (int j = 0; j < height - i; j++)
+		printf("Outer loop iteration: %d\n", i);
+		for (j = 0; j < 3; j++)
 		{
-			printf(" ");
+			printf("  Inner loop iteration: %d\n", j);
+			for (int k = 0; k < 2; k++)
+			{
+				printf("    Nested loop iteration: %d\n", k);
+				if (k == 1)
+				{
+					printf("      Special message!\n");
+				}
+			}
 		}
-		for (int j = 0; j <= i; j++)
-		{
-			printf("%c ", character);
-		}
-		printf("\n");
+		printf("End of inner loop for outer iteration %d\n", i);
 	}
-	int i = 0;
-	while (i < height)
-	{
-		for (int j = 0; j < height - i; j++)
-		{
-			printf(" ");
-		}
-		for (int j = 0; j <= i; j++)
-		{
-			printf("%c ", character);
-		}
-		printf("\n");
-		i++;
-	}
+	printf("Program complete!\n");
+
+	return 0;
 }
